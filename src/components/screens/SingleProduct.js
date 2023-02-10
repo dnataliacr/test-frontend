@@ -10,9 +10,10 @@ const SingleProduct = () => {
     const [singleProduct, setSingleProduct] = useState({})
     const [categories, setCategories] = useState([])
     const [description, setDescription] = useState('')
+    
     useEffect(() => {
-
         const fetchProductData = async () => {
+
             const response = await axios.get(`http://localhost:8000/api/items/${id}`)
             setSingleProduct(response?.data?.item);
         }
@@ -24,7 +25,6 @@ const SingleProduct = () => {
         }
         fetchProductData()
         fetchProductDescription()
-
     }, [])
     useEffect(() => {
         const fetchCategory = async () => {
@@ -43,7 +43,7 @@ const SingleProduct = () => {
             <div className="single-product-container">
                 <section>
                     <div className="product-image">
-                        <img src={singleProduct?.picture} />
+                        <img src={singleProduct?.picture} alt='single product'/>
                     </div>
                     <div className="product-description">
                         <h3>Descripción del producto</h3>
