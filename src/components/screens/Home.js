@@ -1,11 +1,12 @@
-import React from "react";
+import React from "react"
+import EmptyQuery from "../EmptyQuery"
 
 const Home = () => {
-    return (
-        <h1>
-            Home
-        </h1>
-    )
+
+    return <div className='container'>
+        <EmptyQuery />
+    </div>
+
 }
 
 export default Home
