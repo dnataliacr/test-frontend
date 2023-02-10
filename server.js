@@ -51,8 +51,29 @@ app.get('/api/items', cors(), async (req, res) => {
 })
 app.get('/api/items/:id', cors(), async (req, res) => {
     try {
-        const response = await axios.get(`https://api.mercadolibre.com/items/${req.params.id}`)
-        res.json(response.data)
+        const item = {
+            item: {
+                id: response.data.id,
+                title: response.data.title,
+                price: {
+                    currency: response.data.currency_id,
+                    amount: response.data.price,
+                    decimals: 0,
+                },
+                picture: response.data.thumbnail,
+                condition: response.data.condition,
+                free_shipping: response.data.shipping.free_shipping,
+                sold_quantity: response.data.sold_quantity,
+                description: response.data.subtitle
+            },
+            author: {
+                name: 'Natalia',
+                lastname: 'Cabral'
+            },
+
+        }
+
+        res.json(item)
     } catch (error) {
         res.status(500).send(error.message)
 
