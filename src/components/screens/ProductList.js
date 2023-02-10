@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Product from '../Product';
+import Breadcrumb from '../Breadcrumb'
 import axios from "axios";
 
 
@@ -23,6 +24,13 @@ const ProductList = ({ }) => {
     }, [query])
 
     return (<div className='container product-list-container'>
+
+        {
+            category &&
+            <Breadcrumb
+                categories={category} />
+
+        }
         {products?.length > 0 && <section
             className='product-list'
         >
