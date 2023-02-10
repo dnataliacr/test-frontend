@@ -37,8 +37,13 @@ app.get('/api/items', cors(), async (req, res) => {
 
             result?.items?.push(product)
         });
-        
-        res.json(response.data)
+
+        result.autor = {
+            name: 'Natalia',
+            last_name: 'Cabral'
+        }
+
+        res.json(result)
     } catch (error) {
         res.status(500).send(error.message)
 
