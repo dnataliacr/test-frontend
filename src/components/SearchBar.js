@@ -13,6 +13,9 @@ const SearchBar = ({ }) => {
     let [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('search')
     const [q, setQ] = useState('')
+    useEffect(() => {
+        !query && setQ('')
+    }, [query])
     const handleRoutes = () => {
             navigate(`/items?search=${q}`)
     const handleKeyPress = (event) => {
