@@ -37,7 +37,7 @@ const SearchBar = ({ }) => {
     const handleKeyPress = (event) => {
         if (event.key === 'Enter' && q) {
             handleRoutes()
-    }
+        }
     }
 
     const handleClick = () => {
