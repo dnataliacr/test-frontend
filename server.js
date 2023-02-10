@@ -82,7 +82,13 @@ app.get('/api/items/:id', cors(), async (req, res) => {
 app.get('/api/items/:id/description', cors(), async (req, res) => {
     try {
         const response = await axios.get(`https://api.mercadolibre.com/items/${req.params.id}/description`)
+        response.data.autor = {
+            name: 'Natalia',
+            lastname: 'Cabral'
+        }
+
         res.json(response.data)
+
     } catch (error) {
         res.status(500).send(error.message)
 
