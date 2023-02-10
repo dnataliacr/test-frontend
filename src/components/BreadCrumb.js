@@ -12,15 +12,16 @@ const BreadCrumb = ({ categories }) => {
     return <ol className='breadcrumb'>
         {categories?.length > 0 &&
             categories?.map((category, index) => (
-                index <= 2 && <li>
+                index <= 2 && <li key={category}>
                     <Link to='' onClick={(e) => e.preventDefault()}>
                         {category}
                     </Link>
                     {
-                        index < 2 && <span>
+                        <span>
                             <FontAwesomeIcon icon="fa-solid fa-chevron-right" />
                         </span>
                     }
+
                 </li>
             )
             )
