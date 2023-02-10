@@ -3,6 +3,11 @@ import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 
 import logo from '../assets/logo/logo-ml.png'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faMagnifyingGlass);
 const SearchBar = ({ }) => {
     let navigate = useNavigate();
     let [searchParams, setSearchParams] = useSearchParams();
@@ -34,6 +39,9 @@ const SearchBar = ({ }) => {
                             value={q}
                             onChange={(e) => setQ(e.target.value)}
                         />
+                        <span onClick={handleClick}>
+                            <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+                        </span>
                     </div>
                 </div>
             </nav>
