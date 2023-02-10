@@ -21,11 +21,21 @@ const SearchBar = ({ }) => {
         <header>
             <nav
                 className="search-bar">
+                <div className="container">
                     <Link to="/">
                         <div className="search-logo">
                             <img src={logo} />
                         </div>
                     </Link>
+                    <div className={`search-bar-input ${q !== '' ? 'active' : ''}`}>
+                        <input
+                            type='text' placeholder='Nunca dejes de buscar'
+                            onKeyUp={(e) => handleKeyPress(e)}
+                            value={q}
+                            onChange={(e) => setQ(e.target.value)}
+                        />
+                    </div>
+                </div>
             </nav>
         </header>
     )
