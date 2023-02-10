@@ -16,6 +16,10 @@ const SearchBar = ({ }) => {
     useEffect(() => {
         !query && setQ('')
     }, [query])
+    const checkId = (str) => {
+        if (str.startsWith('MLA')) return true
+        else return false
+    }
     const handleRoutes = () => {
             navigate(`/items?search=${q}`)
     const handleKeyPress = (event) => {
