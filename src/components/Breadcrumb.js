@@ -7,10 +7,10 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faChevronRight);
 
-const BreadCrumb = ({ categories }) => {
+const BreadCrumb = ({ categories, loading }) => {
 
     return <ol className='breadcrumb'>
-        {categories?.length > 0 &&
+        {categories?.length > 0 && !loading &&
             categories?.map((category, index) => (
                 index <= 2 && <li key={category}>
                     <Link to='' onClick={(e) => e.preventDefault()}>
@@ -27,9 +27,8 @@ const BreadCrumb = ({ categories }) => {
             )
         }
         {
-            categories?.length <= 0 &&
-            <li>
-                Sin categoría
+            loading && <li>
+                Cargando categorías...
             </li>
         }
     </ol >

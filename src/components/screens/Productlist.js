@@ -8,6 +8,7 @@ import axios from "axios";
 const ProductList = () => {
     const [products, setProducts] = useState([])
     const [category, setCategory] = useState([])
+    const [loading, setLoading] = useState(true)
     let [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('search')
 
@@ -18,6 +19,7 @@ const ProductList = () => {
 
             setProducts(productsFirstItems)
             setCategory(response?.data?.categories)
+            setLoading(false)
         };
 
         fetchData();
@@ -28,10 +30,11 @@ const ProductList = () => {
         {
             category &&
             <Breadcrumb
+                loading={loading}
                 categories={category} />
 
         }
-        {products?.length > 0 && <section
+        {products?.length > 0 && !loading && <section
             className='product-list'
         >
             {
@@ -46,8 +49,12 @@ const ProductList = () => {
 
         }
         {
-            products.length <= 0 &&
+            products.length <= 0 && !loading &&
             <h1 className='empty-state'>Sin resultados</h1>
+        }
+        {
+            loading &&
+            <h1 className='empty-state'>Cargando productos...</h1>
         }
     </div>
     )
