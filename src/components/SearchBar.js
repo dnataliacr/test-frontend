@@ -8,26 +8,44 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faMagnifyingGlass);
+
 const SearchBar = ({ }) => {
     let navigate = useNavigate();
     let [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('search')
     const [q, setQ] = useState('')
+
     useEffect(() => {
         !query && setQ('')
     }, [query])
+
+
+
     const checkId = (str) => {
         if (str.startsWith('MLA')) return true
         else return false
     }
     const handleRoutes = () => {
+        if (checkId(q)) {
+            navigate(`/items/${q}`)
+        } else {
             navigate(`/items?search=${q}`)
+        }
+    }
+
+
     const handleKeyPress = (event) => {
+        if (event.key === 'Enter' && q) {
             handleRoutes()
     }
+    }
+
     const handleClick = () => {
+        if (q) {
             handleRoutes()
         }
+
+
     }
     return (
         <header>
