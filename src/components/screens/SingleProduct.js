@@ -5,7 +5,7 @@ import Button from "../Button";
 import BreadCrumb from "../Breadcrumb";
 
 
-const SingleProduct = ({ product }) => {
+const SingleProduct = () => {
     let { id } = useParams();
     const [singleProduct, setSingleProduct] = useState({})
     const [categories, setCategories] = useState([])
@@ -15,18 +15,27 @@ const SingleProduct = ({ product }) => {
         const fetchProductData = async () => {
             const response = await axios.get(`http://localhost:8000/api/items/${id}`)
             setSingleProduct(response?.data?.item);
-            setCategories(response?.data?.categories)
         }
+
         const fetchProductDescription = async () => {
             const response = await axios.get(`http://localhost:8000/api/items/${id}/description`)
             setDescription(response?.data?.plain_text);
 
         }
-
         fetchProductData()
         fetchProductDescription()
 
     }, [])
+    useEffect(() => {
+        const fetchCategory = async () => {
+            const response = await axios.get(`http://localhost:8000/api/categories/${singleProduct?.category_id}`)
+            setCategories(response?.data?.data);
+
+        }
+        if (singleProduct?.category_id) {
+            fetchCategory()
+        }
+    }, [singleProduct])
 
     return (
         <div className="container">
