@@ -12,7 +12,7 @@ const BreadCrumb = ({ categories, loading }) => {
     return <ol className='breadcrumb'>
         {categories?.length > 0 && !loading &&
             categories?.map((category, index) => (
-                index <= 4 && <li key={category}>
+                index <= 2 && <li key={category}>
                     <Link to='' onClick={(e) => e.preventDefault()}>
                         {category}
                     </Link>

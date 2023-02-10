@@ -39,10 +39,8 @@ const ProductList = () => {
         >
             {
 
-                products?.map((item, index) => (
-                    <React.Fragment key={index} >
-                        <Product product={item} />
-                    </React.Fragment>
+                products?.map((item) => (
+                    <Product product={item} key={item?.id} />
                 ))
             }
         </section>
