@@ -3,11 +3,29 @@ import { useParams } from 'react-router-dom';
 import axios from "axios";
 import BreadCrumb from "../Breadcrumb";
 
+
 const SingleProduct = ({ product }) => {
     let { id } = useParams();
     const [singleProduct, setSingleProduct] = useState({})
     const [categories, setCategories] = useState([])
     const [description, setDescription] = useState('')
+    useEffect(() => {
+
+        const fetchProductData = async () => {
+            const response = await axios.get(`http://localhost:8000/api/items/${id}`)
+            setSingleProduct(response?.data?.item);
+            setCategories(response?.data?.categories)
+        }
+        const fetchProductDescription = async () => {
+            const response = await axios.get(`http://localhost:8000/api/items/${id}/description`)
+            setDescription(response?.data?.plain_text);
+
+        }
+
+        fetchProductData()
+        fetchProductDescription()
+
+    }, [])
 
     return (
         <div className="container">
