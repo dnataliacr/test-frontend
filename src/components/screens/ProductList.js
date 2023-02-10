@@ -20,6 +20,22 @@ const ProductList = ({ }) => {
     }, [query])
 
     return (<div className='container product-list-container'>
+        {products?.length > 0 && <section
+            className='product-list'
+        >
+            {
+
+                products?.map((item, index) => (
+                    <React.Fragment key={index} >
+                    </React.Fragment>
+            }
+        </section>
+
+        }
+        {
+            products.length <= 0 &&
+            <h1 className='empty-state'>Sin resultados</h1>
+        }
     </div>
     )
 }
