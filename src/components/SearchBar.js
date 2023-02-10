@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 
+import logo from '../assets/logo/logo-ml.png'
+
+const SearchBar = ({ }) => {
     let navigate = useNavigate();
     let [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('search')
@@ -15,9 +18,16 @@ import { useNavigate, Link, useSearchParams } from 'react-router-dom';
         }
     }
     return (
-        <h1>
-            SearchBar
-        </h1>
+        <header>
+            <nav
+                className="search-bar">
+                    <Link to="/">
+                        <div className="search-logo">
+                            <img src={logo} />
+                        </div>
+                    </Link>
+            </nav>
+        </header>
     )
 }
 
