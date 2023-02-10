@@ -5,6 +5,9 @@ import BreadCrumb from "../Breadcrumb";
 
 const SingleProduct = ({ product }) => {
     let { id } = useParams();
+    const [singleProduct, setSingleProduct] = useState({})
+    const [categories, setCategories] = useState([])
+    const [description, setDescription] = useState('')
 
     return (
         <div className="container">
