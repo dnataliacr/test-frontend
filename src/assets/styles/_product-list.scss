@@ -1,0 +1,14 @@
+.product-list-container {
+    padding-bottom: 32px;
+}
+
+.product-list {
+    background: white; 
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px 16px 0 16px;
+    border-radius: 4px;
+    box-shadow:   0 2px 6px -1px rgba(0, 0, 0, 0.16), 0 1px 4px -1px rgba(0, 0, 0, 0.04);
+
+}
