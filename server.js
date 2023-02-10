@@ -20,6 +20,23 @@ app.get('/api/items', cors(), async (req, res) => {
             const categoriesNames = sortedCategories.map((item) => item?.name)
             result.categories = categoriesNames
         }
+
+        response.data.results.forEach(element => {
+            let product = {}
+            product.id = element?.id
+            product.title = element?.title
+            product.price = {
+                currency: element?.currency_id,
+                amount: element?.price,
+                decimals: +(element?.price?.toString().split(".")[1])
+            }
+            product.picture = element?.thumbnail
+            product.condition = element?.condition
+            product.free_shiping = element?.shipping?.free_shipping
+            product.location = element?.address?.state_name
+
+            result?.items?.push(product)
+        });
         
         res.json(response.data)
     } catch (error) {
