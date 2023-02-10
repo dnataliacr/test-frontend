@@ -1,0 +1,28 @@
+.button {
+    width: fit-content;
+
+    button {
+        padding: 8px 72px;
+        border-radius: 4px;
+        border: none;
+        transition: background-color .2s ease-in;
+        position: relative;
+        cursor: pointer;
+        width: 100%;
+
+    }
+}
+
+.button.primary {
+    button {
+        background-color: $color-tertiary;
+        color: white;
+
+        &:hover {
+            background-color: $color-tertiary-dark;
+
+        }
+    }
+
+
+}
