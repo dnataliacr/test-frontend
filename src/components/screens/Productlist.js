@@ -5,7 +5,7 @@ import Breadcrumb from '../Breadcrumb'
 import axios from "axios";
 
 
-const ProductList = ({ }) => {
+const ProductList = () => {
     const [products, setProducts] = useState([])
     const [category, setCategory] = useState([])
     let [searchParams, setSearchParams] = useSearchParams();

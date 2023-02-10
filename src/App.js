@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Routes } from 'react-router-dom';
-import SearchBar from './components/SearchBar';
+import SearchBar from './components/Searchbar';
 import Home from './components/screens/Home';
-import ProductList from './components/screens/ProductList';
-import SingleProduct from './components/screens/SingleProduct';
+import ProductList from './components/screens/Productlist';
+import SingleProduct from './components/screens/Singleproduct';
 function App() {
   return (
     <div className="App">

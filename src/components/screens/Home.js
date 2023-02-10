@@ -1,5 +1,5 @@
 import React from "react"
-import EmptyQuery from "../EmptyQuery"
+import EmptyQuery from "../Emptyquery"
 
 const Home = () => {
 

@@ -9,7 +9,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faMagnifyingGlass);
 
-const SearchBar = ({ }) => {
+const SearchBar = () => {
     let navigate = useNavigate();
     let [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('search')
@@ -54,7 +54,7 @@ const SearchBar = ({ }) => {
                 <div className="container">
                     <Link to="/">
                         <div className="search-logo">
-                            <img src={logo} />
+                            <img src={logo}  alt='logo'/>
                         </div>
                     </Link>
                     <div className={`search-bar-input ${q !== '' ? 'active' : ''}`}>
