@@ -1,0 +1,25 @@
+.breadcrumb {
+    list-style: none;
+    display: flex;
+    padding: 16px 0;
+    li,
+    a {
+        font-size: 14px;
+        color: $color-gray;
+        line-height: 2;
+    }
+    a,
+    span {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    li {
+        position: relative;
+        span {
+            font-size: 10px;
+            margin: 0 .5rem;
+        }
+    }
+
+}
