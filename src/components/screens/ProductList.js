@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import Product from '../Product';
 import axios from "axios";
+
 
 const ProductList = ({ }) => {
     const [products, setProducts] = useState([])
     const [category, setCategory] = useState([])
     let [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('search')
+
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios.get(`http://localhost:8000/api/items?q=${query}`)
@@ -27,7 +30,9 @@ const ProductList = ({ }) => {
 
                 products?.map((item, index) => (
                     <React.Fragment key={index} >
+                        <Product product={item} />
                     </React.Fragment>
+                ))
             }
         </section>
 

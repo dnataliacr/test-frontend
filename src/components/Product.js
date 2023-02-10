@@ -2,8 +2,10 @@ import React from "react"
 import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
+    let navigate = useNavigate();
 
     return (<div className='product-container'>
+        <div className="product-wrapper" onClick={() => navigate(`/items/${product?.id}`)}>
             <div
                 className="product-picture">
                 <img src={product?.picture} alt="product image" />
@@ -18,5 +20,6 @@ const Product = ({ product }) => {
         </div>
 
     </div>)
+}
 
 export default Product
